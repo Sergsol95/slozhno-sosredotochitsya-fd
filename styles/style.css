@@ -14,18 +14,16 @@
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
 
-.panel {
+.header.decorated-zone {
+  position: relative;
   display: grid;
+  align-items: start;
   padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   min-block-size: 100vh;
 }
 
-.corner-frame {
-  position: relative;
-}
-
-.corner-frame::before,
-.corner-frame::after {
+.header.decorated-zone::before,
+.header.decorated-zone::after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -33,34 +31,57 @@
   block-size: 25px;
 }
 
-.corner-frame::before {
+.header.decorated-zone::before {
   border-inline-end: 1px solid var(--secondary-color, #ff0070);
   border-block-start: 1px solid var(--secondary-color, #ff0070);
   inset-inline-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   inset-block-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 
-.corner-frame::after {
+.header.decorated-zone::after {
   border-inline-start: 1px solid var(--secondary-color, #ff0070);
   border-block-end: 1px solid var(--secondary-color, #ff0070);
   inset-inline-start: clamp(10px, 0.0286rem + 2.5445vw, 20px);
   inset-block-end: clamp(10px, 0.0286rem + 2.5445vw, 20px);
 }
 
-.link {
-  text-decoration: none;
+.header__theme-menu {
+  justify-self: end;
+  margin-block: 65px;
 }
 
-.link:hover {
-  text-decoration: underline;
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.link:focus {
+.header__theme-menu-button {
+  border: 1px solid transparent;
+  padding: 2px 12px;
+  color: var(--secondary-color, #ff0070);
+  line-height: 18px;
+  text-transform: lowercase;
+  background: transparent;
+  cursor: pointer;
+}
+
+.header__theme-menu-button_active {
+  border-color: currentColor;
+  cursor: default;
+  pointer-events: none;
+}
+
+.header__theme-menu-button:hover {
+  border-color: var(--secondary-color-transparent, #ff007040);
+}
+
+.header__theme-menu-button:focus {
   outline: 0;
 }
 
-.link:focus-visible {
-  outline: 1px solid currentColor;
+.header__theme-menu-button:focus-visible {
+  border-block-end-color: currentColor;
 }
 
 .badge-record {
@@ -110,6 +131,22 @@
   background: var(--accent-color, #ff0070);
 }
 
+.header-subtitle {
+  margin-block: 55px;
+  color: var(--highlight-color, #000028);
+  font-weight: 700;
+  font-size: inherit;
+  line-height: inherit;
+  background: var(--accent-color, #ff0070);
+}
+
+/* Основной контент */
+.main-content {
+  display: grid;
+  gap: 50px;
+  padding: 40px 10px;
+}
+
 .section {
   display: grid;
   gap: 20px;
@@ -138,66 +175,26 @@
   inline-size: 100%;
 }
 
-.site-header {
-  align-items: start;
+/* Footer */
+.site-footer {
+  place-items: center;
 }
 
-.header__theme-menu {
-  justify-self: end;
-  margin-block: 65px;
+/* Стили для ссылок */
+.link {
+  text-decoration: none;
 }
 
-.header__theme-menu-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.link:hover {
+  text-decoration: underline;
 }
 
-.header__theme-menu-button {
-  border: 1px solid transparent;
-  padding: 2px 12px;
-  color: var(--secondary-color, #ff0070);
-  line-height: 18px;
-  text-transform: lowercase;
-  background: transparent;
-  cursor: pointer;
-}
-
-.header__theme-menu-button_active {
-  border-color: currentColor;
-  cursor: default;
-  pointer-events: none;
-}
-
-.header__theme-menu-button:hover {
-  border-color: var(--secondary-color-transparent, #ff007040);
-}
-
-.header__theme-menu-button:focus {
+.link:focus {
   outline: 0;
 }
 
-.header__theme-menu-button:focus-visible {
-  border-block-end-color: currentColor;
-}
-
-.header-subtitle {
-  margin-block: 55px;
-  color: var(--highlight-color, #000028);
-  font-weight: 700;
-  font-size: inherit;
-  line-height: inherit;
-  background: var(--accent-color, #ff0070);
-}
-
-.main-content {
-  display: grid;
-  gap: 50px;
-  padding: 40px 10px;
-}
-
-.site-footer {
-  place-items: center;
+.link:focus-visible {
+  outline: 1px solid currentColor;
 }
 
 @media (min-width: 768px) {
@@ -242,7 +239,7 @@
     grid-row-start: span 2;
   }
 
-  .site-header {
+  .header.decorated-zone {
     padding-inline-start: 0;
   }
 
@@ -275,11 +272,15 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .header.decorated-zone {
+    margin-inline-start: 20px;
+    margin-block-end: 215px;
+    padding-inline-start: 0;
+  }
+
   .header__theme-menu {
     justify-self: center;
     margin-inline-start: 20px;
-    margin-block-start: 0;
-    margin-block-end: 215px;
   }
 
   .header__theme-menu-list {

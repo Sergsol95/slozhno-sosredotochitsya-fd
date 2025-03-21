@@ -1,4 +1,4 @@
-.page.theme_dark {
+:root.theme-dark {
   --main-text-color: var(--text-light, #f1b2ce);
   --brand-color: var(--brand-main, #db00ff);
   --secondary-color: var(--accent-main, #ff0070);

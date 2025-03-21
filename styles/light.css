@@ -1,4 +1,4 @@
-.page.theme_light {
+:root.theme-light {
   --main-text-color: var(--text-dark, #353430);
   --accent-color: var(--highlight-light, #ff8dcb);
   --brand-color: var(--accent-light, #ffc2e6);
