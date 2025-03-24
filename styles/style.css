@@ -10,16 +10,19 @@
   background-attachment: fixed;
 }
 
+.header {
+  display: grid;
+  align-items: center;
+  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
+  min-height: 100vh;
+}
+
 .glow-text {
   text-shadow: 2px 2px 0 var(--accent-color, #ff0070);
 }
 
 .decorated-zone {
   position: relative; 
-  display: grid;
-  align-items: center;
-  padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
-  min-height: 100vh;
 }
 
 .decorated-zone::before,
@@ -46,16 +49,8 @@
   border-left: 1px solid var(--secondary-color, #ff0070);
 }
 
-header {
-  height: 100vh;
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-}
-
 footer {
   height: 100vh;
-  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +84,7 @@ footer {
 }
 
 .header__theme-menu-button:hover {
-  border-color: var(--secondary-color-transparent, #ff007040);
+  border-color: var(--secondary-color-transparent, #ff007066);
 }
 
 .header__theme-menu-button:focus {
@@ -163,12 +158,20 @@ footer {
 .main-content {
   display: grid;
   gap: 50px;
-  padding: 40px 10px;
+  padding: 40px 10px 45px 10px;
 }
 
 .section {
   display: grid;
   gap: 20px;
+}
+
+.section-visuals {
+  gap: 9px;
+}
+
+.section-tips {
+  gap: 21px
 }
 
 .section-tips__title {
@@ -198,16 +201,12 @@ footer {
   height: 100%;
 }
 
-.site-footer {
-  place-items: center;
-}
-
 .link {
   text-decoration: none;
 }
 
 .link:hover {
-  border-bottom: var(--text-light, #f1b2ce);
+  border-bottom: 1px solid var(--secondary-color, #353430);
 }
 
 .link:focus {
@@ -243,6 +242,7 @@ footer {
   .section-visuals {
     grid-template-columns: 1fr;
     padding-top: 30px;
+    margin-bottom: 16px;
   }
 
   .section-tips__articles {
@@ -251,6 +251,10 @@ footer {
 
   .section-tips {
     padding-top: 26px;
+  }
+
+  .section-tips__title {
+    margin-bottom: 23px;
   }
 
   .gallery-grid {
@@ -272,10 +276,6 @@ footer {
     padding-inline-start: 0;
   }
 
-  .heading-s {
-    margin-bottom: 17px;
-  }
-
   .header__theme-menu {
     margin-block-start: 110px;
     margin-block-end: 70px;
@@ -288,21 +288,33 @@ footer {
   }
 
   .main-content {
-    padding: 60px 20px;
+    padding: 60px 20px 45px 20px;
+  }
+
+  .heading-visuals {
+    margin-bottom: 10px;
   }
 }
 
 @media (min-width: 1024px) {
 
   .section {
-    column-gap: 30px;
+    column-gap: 33px;
   }
 
   .section-distractors__articles {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .decorated-zone {
+  .section-visuals {
+    padding-top: 27px;
+  }
+
+  .section-tips__title {
+    margin-bottom: 20px;
+  }
+
+  .header {
     padding-inline-start: 0;
     grid-template-rows: 2fr 2fr;
   }
