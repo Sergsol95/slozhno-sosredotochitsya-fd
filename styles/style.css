@@ -14,7 +14,8 @@
   display: grid;
   align-items: center;
   padding: clamp(10px, 0.0286rem + 2.5445vw, 20px);
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 375px;
 }
 
 .glow-text {
@@ -51,6 +52,7 @@
 
 footer {
   height: 100vh;
+  min-height: 375px;
   display: flex;
   align-items: center;
   justify-content: center;
